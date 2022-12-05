@@ -6,15 +6,15 @@ application:
   database:
     postgresql:
       driverClassName: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/acme
-      url: jdbc:postgresql://138.201.137.201/acme
-      username: postgresql-username
-      password: postgresql-password
+      url: jdbc:postgresql://localhost:5431/postgres
+#      url: jdbc:postgresql://138.201.137.201/acme
+      username: postgres
+      password: postgres
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     mysql:
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/acme
+      url: jdbc:mysql://localhost:3306/db
       username: mysql-username
       password: mysql-password
       hibernate:
@@ -56,6 +56,7 @@ spring:
       - db/specific/mariadb
       - db/specific/sqlite
       - db/specific/h2
+    enabled: false
   jpa:
 #    database: POSTGRESQL
 #    properties:
@@ -70,10 +71,4 @@ spring:
     open-in-view: true
     show-sql: true
 
-# Flyway
-# TODO This section is only handling PostgreSQL... either make it work for all databases or remove it in favor of programmatically setup
-flyway:
-  url: jdbc:postgresql://localhost:5432/acme
-  user: postgresql-username
-  password: postgresql-password
-#  schemas: acme
+
