@@ -33,6 +33,7 @@ public class User extends PostgreSQLEntityWithUUID {
     @Column(name = "email", unique = true)
     @NotBlank(message = "Summary cannot be empty")
     private String email;
+    @Column(name = "date_of_birth")
     private Instant birthday;
 
 }

@@ -2,6 +2,7 @@ package com.acme.poc.springboot.backend.database.postgresql.configuration;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.spi.PersistenceProvider;
+import org.flywaydb.core.Flyway;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -61,6 +62,11 @@ public class PostgreSQLPersistence {
     @Bean("postgresqlEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean postgresqlUserEntityManagerFactory(@Qualifier("postgresqlUserDataSource")
                                                                                      DataSource postgresqlUserDataSource) {
+        Flyway.configure()
+              .dataSource(postgresqlUserDataSource)
+              .locations("db/specific/postgresql")
+              .load()
+              .migrate();
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter() {{
             setGenerateDdl(true);
         }};

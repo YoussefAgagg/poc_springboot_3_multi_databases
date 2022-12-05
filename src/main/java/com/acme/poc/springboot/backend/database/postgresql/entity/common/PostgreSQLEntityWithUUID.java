@@ -20,7 +20,7 @@ import java.util.UUID;
 public class PostgreSQLEntityWithUUID {
 
     @Id                                                                 // Set 'id' to be the primary key
-    @Column(name = "uuid", nullable = false)
+    @Column(name = "id", nullable = false)
 //    @Type(type = "pg-uuid")                                             // Set type to be the PostgreSQL specific 'pg-uuid' type
 //    @Type(type = "org.hibernate.type.PostgresUUIDType")
     @GeneratedValue(strategy = GenerationType.AUTO)

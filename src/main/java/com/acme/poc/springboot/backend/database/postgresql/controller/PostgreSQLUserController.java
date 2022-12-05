@@ -7,6 +7,7 @@ import com.acme.poc.springboot.backend.database.postgresql.service.PostgreSQLUse
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class PostgreSQLUserController {
 
 
     @GetMapping(path = "")
-    public List<UserDto> getAllUsers(Pageable pageable, @RequestParam(defaultValue = "username,asc", required = false) String[] sort) {        // TODO Check if sort could just be: Sort sort (just lige Pageable pageable)
+    public List<UserDto> getAllUsers(@PageableDefault(sort = { "uuid" })Pageable pageable, @RequestParam(defaultValue = "username,asc", required = false) String[] sort) {        // TODO Check if sort could just be: Sort sort (just lige Pageable pageable)
         Page<User> users = userService.getAllUsers(pageable, sort);
         return users.stream()
                 .map(userMapper::userToUserDto)
