@@ -46,9 +46,9 @@ public class H2UserController {
         return userMapper.userToUserDto(userService.createUser(user));
     }
 
-    @GetMapping(path = "{uuid}")
-    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ UUID uuid) {
-        return userMapper.userToUserDto(userService.getUserById(uuid));
+    @GetMapping(path = "{id}")
+    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ Long id) {
+        return userMapper.userToUserDto(userService.getUserById(id));
     }
 
 //    @PutMapping(path = "")

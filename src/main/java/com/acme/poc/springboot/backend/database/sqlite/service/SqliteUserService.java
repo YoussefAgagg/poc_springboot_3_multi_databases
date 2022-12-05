@@ -1,7 +1,7 @@
-package com.acme.poc.springboot.backend.database.mariadb.service;
+package com.acme.poc.springboot.backend.database.sqlite.service;
 
-import com.acme.poc.springboot.backend.database.mariadb.entity.User;
-import com.acme.poc.springboot.backend.database.mariadb.repository.MariadbUserRepository;
+import com.acme.poc.springboot.backend.database.sqlite.entity.User;
+import com.acme.poc.springboot.backend.database.sqlite.repository.SqliteUserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,35 +9,38 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
 /**
  * ???
  */
-@Service("PoC_Mariadb_UserService")
+@Service("PoC_Sqlite_UserService")
 //@Transactional(transactionManager = "postgresqlUserTransactionManager")
-public class MariadbUserService {
+public class SqliteUserService {
 
-    private final static Logger log = LoggerFactory.getLogger(MariadbUserService.class);
+    private final static Logger log = LoggerFactory.getLogger(SqliteUserService.class);
 
-    private final MariadbUserRepository userRepository;
+    private final SqliteUserRepository userRepository;
 
 
-    public MariadbUserService(MariadbUserRepository userRepository) {
+    public SqliteUserService(SqliteUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
 
-    public Page<User> getAllUsers(Pageable pageable, String[] sort) {
-        return userRepository.findAll(pageable);
+    public List<User> getAllUsers(Pageable pageable, String[] sort) {
+
+        return userRepository.findAll();
     }
 
     public User createUser(User user) {
         return userRepository.save(user);
     }
 
-    public User getUserById(Long id) {
+    public User getUserById(Integer id) {
         return userRepository
                         .findById(id)
                         .orElseThrow(EntityNotFoundException::new);

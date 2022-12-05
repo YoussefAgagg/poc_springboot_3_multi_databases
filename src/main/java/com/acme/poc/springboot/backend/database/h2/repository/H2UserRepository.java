@@ -9,5 +9,5 @@ import java.util.UUID;
 
 
 @Repository
-public interface H2UserRepository extends CrudRepository<User, UUID>, PagingAndSortingRepository<User, UUID> {
+public interface H2UserRepository extends CrudRepository<User, Long>, PagingAndSortingRepository<User, Long> {
 }

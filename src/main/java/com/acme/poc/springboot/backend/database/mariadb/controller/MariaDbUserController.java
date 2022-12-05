@@ -47,8 +47,8 @@ public class MariaDbUserController {
     }
 
     @GetMapping(path = "{uuid}")
-    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ UUID uuid) {
-        return userMapper.userToUserDto(userService.getUserById(uuid));
+    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ Long id) {
+        return userMapper.userToUserDto(userService.getUserById(id));
     }
 
 //    @PutMapping(path = "")

@@ -37,9 +37,9 @@ public class H2UserService {
         return userRepository.save(user);
     }
 
-    public User getUserById(UUID uuid) {
+    public User getUserById(Long id) {
         return userRepository
-                        .findById(uuid)
+                        .findById(id)
                         .orElseThrow(EntityNotFoundException::new);
     }
 

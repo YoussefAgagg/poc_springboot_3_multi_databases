@@ -28,11 +28,11 @@ application:
         dialect: org.hibernate.dialect.MariaDB53Dialect
     sqlite:
       driverClassName: org.sqlite.JDBC
-      url: jdbc:sqlite:memory:acme?cache=shared
+      url: jdbc:sqlite:sqlitedb.db
       username: sqlite-username
       password: sqlite-password
       hibernate:
-        dialect: org.hibernate.dialect.SqliteDialect
+        dialect: org.hibernate.community.dialect.SQLiteDialect
     h2:
       driverClassName: org.h2.Driver
       url: jdbc:h2:mem:h2db;DB_CLOSE_DELAY=-1

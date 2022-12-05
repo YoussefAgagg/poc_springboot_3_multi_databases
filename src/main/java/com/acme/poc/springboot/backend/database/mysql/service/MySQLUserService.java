@@ -37,7 +37,7 @@ public class MySQLUserService {
         return userRepository.save(user);
     }
 
-    public User getUserById(UUID uuid) {
+    public User getUserById(Long uuid) {
         return userRepository
                         .findById(uuid)
                         .orElseThrow(EntityNotFoundException::new);
