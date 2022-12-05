@@ -21,11 +21,11 @@ application:
         dialect: org.hibernate.dialect.MySQLDialect
     mariadb:
       driverClassName: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://localhost:3306/acme
-      username: mariadb-username
-      password: mariadb-password
+      url: jdbc:mariadb://localhost:3333/db
+      username: user
+      password: password
       hibernate:
-        dialect: org.hibernate.dialect.MariaDbDialect
+        dialect: org.hibernate.dialect.MariaDB53Dialect
     sqlite:
       driverClassName: org.sqlite.JDBC
       url: jdbc:sqlite:memory:acme?cache=shared
