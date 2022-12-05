@@ -35,7 +35,7 @@ application:
         dialect: org.hibernate.dialect.SqliteDialect
     h2:
       driverClassName: org.h2.Driver
-      url: jdbc:h2:mem:h2db
+      url: jdbc:h2:mem:h2db;DB_CLOSE_DELAY=-1
       username: h2-username
       password: h2-password
       hibernate:
