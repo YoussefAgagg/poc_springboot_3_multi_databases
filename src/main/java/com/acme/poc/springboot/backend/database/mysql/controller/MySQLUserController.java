@@ -46,9 +46,9 @@ public class MySQLUserController {
         return userMapper.userToUserDto(userService.createUser(user));
     }
 
-    @GetMapping(path = "{uuid}")
-    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ Long uuid) {
-        return userMapper.userToUserDto(userService.getUserById(uuid));
+    @GetMapping(path = "{id}")
+    public UserDto getUserById(@PathVariable/*(name = "uuid", required = true)*/ Long id) {
+        return userMapper.userToUserDto(userService.getUserById(id));
     }
 
 //    @PutMapping(path = "")
